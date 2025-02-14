@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv">
+    <p>This paragraph is inside a div.</p>
+  </div>
+  <script>
+    //Correct way to access text content of a DOM element
+    let textContent = document.getElementById("myDiv").textContent; 
+    console.log(textContent); 
+    //Consistently using innerText or textContent
+    document.getElementById('myDiv').textContent = 'New text';
+    //Avoid mixing innerText and textContent for consistency
+  </script>
+</body>
+</html>
