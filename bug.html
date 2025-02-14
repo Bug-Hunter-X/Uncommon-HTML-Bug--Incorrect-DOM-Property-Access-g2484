@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug</title>
+</head>
+<body>
+  <p>This is a paragraph.</p>
+  <div id="myDiv">
+    <p>This paragraph is inside a div.</p>
+  </div>
+  <script>
+    // Incorrectly accessing a non-existent property of a DOM element. 
+    // This should be myDiv.innerText or myDiv.textContent, not myDiv.text
+    let text = document.getElementById("myDiv").text; 
+    console.log(text); // Throws an error in some browsers
+    //Another potential problem: Inconsistent use of innerText/textContent
+    document.getElementById('myDiv').innerText = 'New text';
+    document.getElementById('myDiv').textContent = 'Conflicting text'; //Overwrites previous
+  </script>
+</body>
+</html>
